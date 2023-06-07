@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./games.component.css']
 })
 export class GamesComponent {
+  //Substitui a lista com os jogos
+  gamesList = "Lista dos Jogos a ser substituida";
 
 }

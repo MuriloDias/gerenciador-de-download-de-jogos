@@ -6,5 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+  enderecoLogo = "../../assets/logo.PNG";
+  login = "Admin";
+  nomeJogoPesquisado = "Pesquisar";
+
+  onLogin() : void{
+    //realiza login
+    window.alert("tentativa de login");
+    //login = "Nome do usuário logado";
+  }
 
 }
+
+
