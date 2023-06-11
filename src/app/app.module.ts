@@ -8,6 +8,11 @@ import { GamesComponent } from './games/games.component';
 import { UsersComponent } from './users/users.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { GamesListComponent } from './games-list/games-list.component';
+import { LoginComponent } from './login/login.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ListarJogosComponent } from './listar-jogos/listar-jogos.component';
+import { AlterarJogoComponent } from './alterar-jogo/alterar-jogo.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +20,12 @@ import { FooterComponent } from './footer/footer.component';
     GamesComponent,
     UsersComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    GamesListComponent,
+    LoginComponent,
+    DashboardComponent,
+    ListarJogosComponent,
+    AlterarJogoComponent
   ],
   imports: [
     BrowserModule,

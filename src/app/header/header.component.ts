@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { User } from '../model/user';
 
 @Component({
   selector: 'app-header',
@@ -6,14 +7,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+  usuaroLogado!: User;
   enderecoLogo = "../../assets/logo.PNG";
   login = "Admin";
   nomeJogoPesquisado = "Pesquisar";
+  name = 'Angular';
+  public isCollapsed = true;
+  hiddenPesquisar = false;
+  hiddenLogin = false;
+  hiddenLogout = true;
+  valuePesquisar : string = ""
 
-  onLogin() : void{
-    //realiza login
-    window.alert("tentativa de login");
-    //login = "Nome do usuário logado";
+  usuarioLogado(user: User): void{
+    
   }
 
 }
