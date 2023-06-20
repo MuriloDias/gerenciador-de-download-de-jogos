@@ -4,10 +4,10 @@ export class User{
     login: string;
     ativo: boolean;
 
-    constructor(username: string, password: string, login: string){
+    constructor(username: string, password: string, login: string, ativo: boolean){
         this.username = username;
         this.password = password;
         this.login = login;
-        this.ativo = true;
+        this.ativo = ativo;
     }
 }

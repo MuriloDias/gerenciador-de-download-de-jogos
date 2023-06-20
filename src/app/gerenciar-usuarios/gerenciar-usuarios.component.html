@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="d-flex" style="display: inline-flex;">
+        <div>
+            <h1>Lista de Usuários</h1>
+        </div>
+        <div style="padding-left: 75%; padding-top: 3%;">
+            <a routerLink="/cadastroUsuarios">
+                <div class="btn btn-outline-info my-2 my-sm-0" name="adicionarJogos">
+                    Novo
+                </div>
+            </a>
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nome Usuario</th>
+                <th>Login</th>
+                <th>Senha</th>
+                <th>Ativo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of listaUsuariosAtivos">
+                <td>{{ user.username }}</td>
+                <td>{{ user.login }}</td>
+                <td>{{ user.password }}</td>
+                <td>{{ user.ativo }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
