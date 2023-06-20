@@ -1,0 +1,10 @@
+<div class="intro z-depth-1" [ngStyle]="this.getBackgroudImage()">
+    <div class="container">
+        <input [(ngModel)]="popularGames">
+    </div>
+</div>
+<div>
+    <div class="container any-component">
+        <app-games-list [popularGames]="popularGames"></app-games-list>
+    </div>
+</div>

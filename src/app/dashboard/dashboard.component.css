@@ -1,0 +1,16 @@
+.config {
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+
+.numbers {
+    text-align: center;
+    text-shadow: 3%;
+    font-size: 150px;
+    padding-top: 3%;
+}
+
+.card-title{
+    text-align: center;
+    padding-bottom: 7%;
+}

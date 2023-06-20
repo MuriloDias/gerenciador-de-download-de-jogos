@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="card-group config">
+    <div class="card">
+      <div class="numbers" style="color: greenyellow;">
+        {{dashBoardCardQtdDisp.valor}}
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{dashBoardCardQtdDisp.titulo}}</h5>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Last updated {{date | date:'medium' }}</small>
+      </div>
+    </div>
+    <div class="card">
+      <div class="numbers" style="color: darkblue;">
+        {{dashBoardCardTotalBaixado.valor}}
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{dashBoardCardTotalBaixado.titulo}}</h5>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Last updated {{date | date:'medium' }}</small>
+      </div>
+    </div>
+    <div class="card">
+      <div class="numbers" style="color: darkmagenta;">
+        {{dashBoardCardUsuariosAtivos.valor}}
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{dashBoardCardUsuariosAtivos.titulo}}</h5>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Last updated {{date | date:'medium' }}</small>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex" style="text-align: center;">
+    <div>
+      <a routerLink="listarJogos">
+        <div class="btn btn-outline-success my-2 my-sm-0" name="listarJogos">
+          Jogos
+        </div>
+      </a>
+    </div>
+    <div>
+      <a routerLink="/gerenciarUsuarios">
+        <div class="btn btn-outline-success my-2 my-sm-0" name="listarUsers">
+          Users
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
