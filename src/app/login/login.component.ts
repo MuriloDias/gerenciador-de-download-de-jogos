@@ -2,6 +2,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { User } from '../model/user';
 import { ActivatedRoute, Router } from '@angular/router';
 import { WebStorage } from '../DB/WebStorage';
+import axios from 'axios';
 
 @Component({
   selector: 'app-login',
@@ -25,8 +26,9 @@ export class LoginComponent {
     this.userAdm = userAdmin;
   }
 
-  onLogin() : void{
-    let usuariosConsultados = this.webStorage.consultarObjetoNoWebStorage('listaUsuariosAtivos');
+  async onLogin() : Promise<void>{
+    //let usuariosConsultados = this.webStorage.consultarObjetoNoWebStorage('listaUsuariosAtivos');
+    const usuariosConsultados = await obterDadosDoJSON();
     let listaUsuariosAtivos: User[] = [];
     if(usuariosConsultados != null){
       listaUsuariosAtivos = usuariosConsultados;
@@ -40,5 +42,15 @@ export class LoginComponent {
         window.alert("senha incorreta");
       }
     });
+  }
+}
+async function obterDadosDoJSON(): Promise<any> {
+  try {
+    const response = await axios.get('http://localhost:3000/User');
+    const dados = response.data;
+    return dados;
+  } catch (error) {
+    console.error('Erro ao obter dados do JSON:', error);
+    return null;
   }
 }

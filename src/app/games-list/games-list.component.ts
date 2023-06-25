@@ -11,6 +11,6 @@ export class GamesListComponent {
   recentGames = "Lista dos Jogos recentes";
 
   ngOnInit() { 
-    window.alert(this.popularGames);//<-----------confirmação de chegada
+    //window.alert(this.popularGames);//<-----------confirmação de chegada
   }
 }

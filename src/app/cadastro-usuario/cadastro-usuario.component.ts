@@ -26,7 +26,6 @@ export class CadastroUsuarioComponent {
     try {
       if (this.userForm.valid) {
         const userData = this.userForm.value;
-        console.log(userData);
   
         const userModel = new User(
           userData.nome,
@@ -34,11 +33,13 @@ export class CadastroUsuarioComponent {
           userData.senha,
           userData.ativo
         );
+
         let usuariosConsultados = this.webStorage.consultarObjetoNoWebStorage('listaUsuariosAtivos');
         let listaUsuariosAtivos: User[] = [];
         if(usuariosConsultados != null){
           listaUsuariosAtivos = usuariosConsultados;
         }
+
         listaUsuariosAtivos.push(userModel);
         this.webStorage.salvarObjetoNoWebStorage('listaUsuariosAtivos', listaUsuariosAtivos);
         window.alert("Usuario salvo com sucesso!");
