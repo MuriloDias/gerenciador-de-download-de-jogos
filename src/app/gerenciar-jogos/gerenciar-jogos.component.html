@@ -17,6 +17,7 @@
                 <th>Nome jogo</th>
                 <th>Descrição</th>
                 <th>Link Download</th>
+                <th>Ações</th>
             </tr>
         </thead>
         <tbody>
@@ -24,6 +25,9 @@
                 <td>{{ game.nome }}</td>
                 <td>{{ game.descricao }}</td>
                 <td><a>{{ game.linkDown }}</a></td>
+                <td>
+                    <button class="btn btn-outline-danger my-2 my-sm-0" (click)="remover(game.id)">Remover</button>
+                </td>
             </tr>
         </tbody>
     </table>

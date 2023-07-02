@@ -22,7 +22,21 @@ export class GerenciarJogosComponent {
       const response = await axios.get('http://localhost:3000/game');
       this.listaJogos = response.data;
     } catch (error) {
-      console.error('Erro ao carregar usuários:', error);
+      console.error('Erro ao carregar jogos:', error);
     }
+  }
+
+  async remover(id: any) {
+    await removerJogo(id);
+    this.carregarJogos();
+  }
+}
+
+async function removerJogo(id: any): Promise<void> {
+  try{
+    await axios.delete('http://localhost:3000/game/' + id);
+    window.alert('Jogo removido com sucesso!');
+  } catch (error) {
+    console.error('Erro ao remover jogo', error);
   }
 }
