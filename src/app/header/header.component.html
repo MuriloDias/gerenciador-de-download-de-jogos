@@ -33,14 +33,14 @@
             <div style="align-self: center;" [hidden]="this.hiddenLogin">
                 <a routerLink="login">
                   <div class="btn btn-outline-success my-2 my-sm-0" name="login">
-                    {{ login }}
+                    {{ isLogado }}
                   </div>
                 </a>
             </div>
-            <div style="align-self: center;" [hidden]="this.hiddenLogout">
-                <a routerLink="login">
+            <div style="align-self: center;" [hidden]="!this.hiddenLogin">
+                <a routerLink="/">
                   <div class="btn btn-outline-danger my-2 my-sm-0" name="logout">
-                    {{ login }}
+                    {{ isLogado }}
                   </div>
                 </a>
             </div>

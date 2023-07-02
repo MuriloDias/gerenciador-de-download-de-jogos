@@ -2,6 +2,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { User } from '../model/user';
 import { ActivatedRoute, Router } from '@angular/router';
 import { WebStorage } from '../DB/WebStorage';
+import axios from 'axios';
 
 @Component({
   selector: 'app-login',
@@ -13,32 +14,46 @@ export class LoginComponent {
   login!: string;
   senha!: string;
   user!: User;
-  userAdm!: User;
   webStorage = new WebStorage();
   @Output() usuarioLogado = new EventEmitter<User>();
+  isLogado: String;
 
   constructor(private route: ActivatedRoute, private router: Router){
-    let userAdmin: User = new User("admin", "admin", "admin", true);
-    let listaUsuariosAtivos: User[] = [];
-    listaUsuariosAtivos.push(userAdmin);
-    this.webStorage.salvarObjetoNoWebStorage('listaUsuariosAtivos', listaUsuariosAtivos);
-    this.userAdm = userAdmin;
+    this.isLogado = this.webStorage.consultarObjetoNoWebStorage("isLogado");
   }
 
-  onLogin() : void{
-    let usuariosConsultados = this.webStorage.consultarObjetoNoWebStorage('listaUsuariosAtivos');
+  async onLogin() : Promise<void>{
+    const usuariosConsultados = await obterDadosDoJSON();
     let listaUsuariosAtivos: User[] = [];
     if(usuariosConsultados != null){
       listaUsuariosAtivos = usuariosConsultados;
     }
-    listaUsuariosAtivos.forEach((user: User) => {
+
+    let logou: boolean = false;
+    for (let i = 0; i < listaUsuariosAtivos.length; i++) {
+      const user = listaUsuariosAtivos[i];
       if(user.login == this.login && user.password == this.senha && user.ativo == true){
         this.user = user;
         this.usuarioLogado.emit(this.user);
+        logou = true;
         this.router.navigate(['/dashboard']);
-      }else{
-        window.alert("senha incorreta");
+        this.webStorage.salvarObjetoNoWebStorage("isLogado", user.username);
+        break;
       }
-    });
+    }
+    if(!logou){
+      window.alert("senha incorreta");
+      this.router.navigate(['/login']);
+    }
+  }
+}
+async function obterDadosDoJSON(): Promise<any> {
+  try {
+    const response = await axios.get('http://localhost:3000/User');
+    const dados = response.data;
+    return dados;
+  } catch (error) {
+    console.error('Erro ao obter dados do JSON:', error);
+    return null;
   }
 }
