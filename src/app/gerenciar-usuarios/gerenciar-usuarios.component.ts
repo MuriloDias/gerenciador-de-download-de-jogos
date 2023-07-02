@@ -26,4 +26,18 @@ export class GerenciarUsuariosComponent {
     }
   }
 
+  async remover(id: any) {
+    await removerUsuario(id);
+    this.carregarUsuarios();
+  }
+
+}
+
+async function removerUsuario(id: any): Promise<void> {
+  try{
+    await axios.delete('http://localhost:3000/user/' + id);
+    window.alert('Usuário removido com sucesso!');
+  } catch (error) {
+    console.error('Erro ao remover Usuário', error);
+  }
 }
