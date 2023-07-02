@@ -1,0 +1,52 @@
+<header>
+  <div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav" style="width: 100%">
+          <div class="d-flex justify-content-between" style="width: 100%">
+            <div>
+              <a class="navbar-brand" href="#">
+                <img [src]="enderecoLogo" width="150" height="60" class="d-inline-block align-top" alt="">
+              </a>
+            </div>
+            <div style="align-self: center;" [hidden]="this.hiddenPesquisar">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <form class="form-inline d-flex flex-row">
+                    <div>
+                      <input class="form-control mr-sm-2" type="pesquisar" placeholder="{{ nomeJogoPesquisado }}" [(ngModel)] = "this.valuePesquisar" name="input-pesquisar"
+                        aria-label="Pesquisar" />
+                    </div>
+                    <div style="padding-left: 10px;">
+                      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+                        Pesquisar
+                      </button>
+                    </div>
+                  </form>
+                </li>
+              </ul>
+            </div>
+            <div style="align-self: center;" [hidden]="this.hiddenLogin">
+                <a routerLink="login">
+                  <div class="btn btn-outline-success my-2 my-sm-0" name="login">
+                    {{ isLogado }}
+                  </div>
+                </a>
+            </div>
+            <div style="align-self: center;" [hidden]="!this.hiddenLogin">
+                <a routerLink="/">
+                  <div class="btn btn-outline-danger my-2 my-sm-0" name="logout">
+                    {{ isLogado }}
+                  </div>
+                </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>

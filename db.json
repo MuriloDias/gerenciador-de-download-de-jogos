@@ -1,0 +1,11 @@
+{
+    "user": [
+        {
+            "id": 1,
+            "username": "admin",
+            "login": "admin",
+            "password": "admin",
+            "ativo": true
+        }
+    ]
+}
