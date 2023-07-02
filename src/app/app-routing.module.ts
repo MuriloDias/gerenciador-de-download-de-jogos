@@ -19,6 +19,7 @@ const routes: Routes = [
   {path: "gerenciarUsuarios", component: GerenciarUsuariosComponent},
   {path: "cadastroUsuarios", component: CadastroUsuarioComponent},
   {path: "editarUsuarios", component: EditarUsuarioComponent},
+  {path: "editarUsuarios/:id", component: EditarUsuarioComponent },
 ];
 
 @NgModule({
