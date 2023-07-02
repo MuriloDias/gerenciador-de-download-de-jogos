@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="d-flex" style="display: inline-flex;">
+        <div>
+            <h1>Lista de Jogos</h1>
+        </div>
+        <div style="padding-left: 75%; padding-top: 3%;">
+            <a routerLink="/cadastroJogos">
+                <div class="btn btn-outline-info my-2 my-sm-0" name="adicionarJogos">
+                    Novo
+                </div>
+            </a>
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nome jogo</th>
+                <th>Descrição</th>
+                <th>Link Download</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let game of listaJogos">
+                <td>{{ game.nome }}</td>
+                <td>{{ game.descricao }}</td>
+                <td><a>{{ game.linkDown }}</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

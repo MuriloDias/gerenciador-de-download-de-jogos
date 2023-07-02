@@ -7,5 +7,31 @@
             "password": "admin",
             "ativo": true
         }
-    ]
+    ],
+    "game": [
+        {
+            "nome": "The Witcher 3: Wild Hunt",
+            "descricao": "Um jogo de RPG de mundo aberto ambientado em um universo de fantasia sombria.",
+            "linkDown": "https://example.com/download/witcher3",
+            "linkImg": "https://example.com/images/witcher3.jpg"
+        },
+        {
+            "nome": "Grand Theft Auto V",
+            "descricao": "Um jogo de ação em mundo aberto onde os jogadores podem explorar uma cidade fictícia.",
+            "linkDown": "https://example.com/download/gtav",
+            "linkImg": "https://example.com/images/gtav.jpg"
+        },
+        {
+            "nome": "Minecraft",
+            "descricao": "Um jogo sandbox onde os jogadores podem construir e explorar mundos virtuais.",
+            "linkDown": "https://example.com/download/minecraft",
+            "linkImg": "https://example.com/images/minecraft.jpg"
+        },
+        {
+            "nome": "The Legend of Zelda: Breath of the Wild",
+            "descricao": "Um jogo de ação e aventura com elementos de mundo aberto ambientado em um reino de fantasia.",
+            "linkDown": "https://example.com/download/zelda",
+            "linkImg": "https://example.com/images/zelda.jpg"
+        }       
+    ]    
 }
