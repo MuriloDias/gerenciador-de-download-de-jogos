@@ -4,15 +4,13 @@
           <label for="nome">id:</label>
           <input type="text" id="id" class="form-control" formControlName="id" [disabled]="true">
         </div>
-
         <div class="form-group">
           <label for="nome">Nome:</label>
           <input type="text" id="nome" class="form-control" formControlName="nome" required>
             <div *ngIf="userForm.controls['nome'].invalid && userForm.controls['nome'].touched" class="text-danger">
             Nome é obrigatório.
           </div>
-        </div>
-      
+        </div> 
         <div class="form-group">
           <label for="login">Login:</label>
           <input type="text" id="login" class="form-control" formControlName="login" required>
@@ -20,7 +18,6 @@
             Login é obrigatório.
           </div>
         </div>
-      
         <div class="form-group">
           <label for="senha">Senha:</label>
           <input type="password" id="senha" class="form-control" formControlName="senha" required minlength="6">
@@ -28,7 +25,6 @@
             Senha é obrigatória e deve ter pelo menos 6 caracteres, um caractere maiusculo, um minusculo e um numero.
           </div>
         </div>
-      
         <div class="form-group">
             <label>Ativo:</label>
             <div class="form-check">

@@ -21,6 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { GerenciarJogosComponent } from './gerenciar-jogos/gerenciar-jogos.component';
 import { CadastroJogoComponent } from './cadastro-jogo/cadastro-jogo.component';
 import { EditarUsuarioComponent } from './editar-usuario/editar-usuario.component';
+import { EditarJogoComponent } from './editar-jogo/editar-jogo.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { EditarUsuarioComponent } from './editar-usuario/editar-usuario.componen
     AtivoDesativoPipe,
     GerenciarJogosComponent,
     CadastroJogoComponent,
-    EditarUsuarioComponent
+    EditarUsuarioComponent,
+    EditarJogoComponent
   ],
   imports: [
     BrowserModule,

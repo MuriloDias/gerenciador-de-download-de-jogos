@@ -49,10 +49,6 @@ export class EditarUsuarioComponent implements OnInit {
           ativo: user.ativo,
           id: user.id,
         });
-
-        // this.userForm.get('ativo')?.valueChanges.subscribe(value => {
-        //   this.user.ativo = value;
-        // });
       }
     });
   }

@@ -30,6 +30,10 @@ export class GerenciarJogosComponent {
     await removerJogo(id);
     this.carregarJogos();
   }
+
+  editar(id: number): void {
+    this.router.navigate(['/editarJogos', id]);
+  }
 }
 
 async function removerJogo(id: any): Promise<void> {

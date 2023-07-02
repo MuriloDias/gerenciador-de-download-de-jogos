@@ -1,5 +1,5 @@
 export class Game{
-    id!: Number;
+    id!: number;
     nome: string;
     descricao: string;
     linkDown: string;
