@@ -15,18 +15,62 @@
       "id": 2
     },
     {
+      "username": "asdsadsad",
+      "password": "Damin132",
+      "login": "asdasdasdas",
+      "ativo": true,
+      "id": 3
+    },
+    {
       "username": "priscila",
       "password": "priscila9A",
       "login": "priscila",
       "ativo": false,
-      "id": 3
+      "id": 4
     },
     {
       "username": "pedro",
       "password": "Pedro9",
       "login": "pedro",
       "ativo": false,
+      "id": 5
+    }
+  ],
+  "game": [
+    {
+      "nome": "The Witcher 3: Wild Hunt",
+      "descricao": "Um jogo de RPG de mundo aberto ambientado em um universo de fantasia sombria.",
+      "linkDown": "https://example.com/download/witcher3",
+      "linkImg": "https://example.com/images/witcher3.jpg",
+      "id": 1
+    },
+    {
+      "nome": "Grand Theft Auto V",
+      "descricao": "Um jogo de ação em mundo aberto onde os jogadores podem explorar uma cidade fictícia.",
+      "linkDown": "https://example.com/download/gtav",
+      "linkImg": "https://example.com/images/gtav.jpg",
+      "id": 2
+    },
+    {
+      "nome": "Minecraft",
+      "descricao": "Um jogo sandbox onde os jogadores podem construir e explorar mundos virtuais.",
+      "linkDown": "https://example.com/download/minecraft",
+      "linkImg": "https://example.com/images/minecraft.jpg",
+      "id": 3
+    },
+    {
+      "nome": "The Legend of Zelda: Breath of the Wild",
+      "descricao": "Um jogo de ação e aventura com elementos de mundo aberto ambientado em um reino de fantasia.",
+      "linkDown": "https://example.com/download/zelda",
+      "linkImg": "https://example.com/images/zelda.jpg",
       "id": 4
+    },
+    {
+      "nome": "jogo novo",
+      "descricao": "desc",
+      "linkDown": "link",
+      "linkImg": "img",
+      "id": 5
     }
   ]
 }

@@ -18,6 +18,8 @@ import { GerenciarUsuariosComponent } from './gerenciar-usuarios/gerenciar-usuar
 import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.component';
 import { AtivoDesativoPipe } from './pipe/ativo-desativo.pipe';
 import { HttpClientModule } from '@angular/common/http';
+import { GerenciarJogosComponent } from './gerenciar-jogos/gerenciar-jogos.component';
+import { CadastroJogoComponent } from './cadastro-jogo/cadastro-jogo.component';
 import { EditarUsuarioComponent } from './editar-usuario/editar-usuario.component';
 
 @NgModule({
@@ -35,6 +37,8 @@ import { EditarUsuarioComponent } from './editar-usuario/editar-usuario.componen
     GerenciarUsuariosComponent,
     CadastroUsuarioComponent,
     AtivoDesativoPipe,
+    GerenciarJogosComponent,
+    CadastroJogoComponent,
     EditarUsuarioComponent
   ],
   imports: [

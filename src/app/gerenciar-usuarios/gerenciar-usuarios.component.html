@@ -20,6 +20,7 @@
                 <th>Senha</th>
                 <th>Ativo</th>
                 <th></th>
+                <th>Ações</th>
                 <th></th>
             </tr>
         </thead>
@@ -32,20 +33,20 @@
                 <td>
                     <p *ngIf="user.ativo; else vermelho" class="verde">
                         {{ user.ativo | ativoDesativo}}
-                      </p>
-                      
-                      <ng-template #vermelho>
+                    </p>
+
+                    <ng-template #vermelho>
                         <p class="vermelho">
-                        {{ user.ativo | ativoDesativo}}
+                            {{ user.ativo | ativoDesativo}}
                         </p>
-                      </ng-template>
+                    </ng-template>
                 </td>
                 <td>
                     <button class="btn btn-outline-info my-2 my-sm-0" (click)="editarUsuario(user.id)">Editar</button>
                 </td>
                 <td>
-                    <button class="btn btn-outline-danger my-2 my-sm-0" (click)="editarUsuario(user.id)">Remover</button>
-                </td>
+                    <button class="btn btn-outline-danger my-2 my-sm-0" (click)="remover(user.id)">Remover</button>
+                <td>
             </tr>
         </tbody>
     </table>
