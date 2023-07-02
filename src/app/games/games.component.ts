@@ -10,7 +10,7 @@ import { Game } from '../model/game';
   styleUrls: ['./games.component.css']
 })
 export class GamesComponent implements OnInit{
-  popularGames = "Lista dos Jogos populares! teste de input";
+  popularGames = "Destaques";
   imageURL: string = "../../assets/arrows-abstract-4k.jpg";
   webStorage = new WebStorage();
   isLogado: String = "Login";

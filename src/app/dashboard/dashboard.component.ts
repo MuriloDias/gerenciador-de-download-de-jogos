@@ -5,6 +5,7 @@ import { User } from '../model/user';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Game } from '../model/game';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,17 +13,15 @@ import { Observable } from 'rxjs';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit{
-  dashBoardCardQtdDisp: DashboardCard;
-  dashBoardCardTotalBaixado: DashboardCard;
+  dashBoardCardQtdGames!: DashboardCard;
   dashBoardCardUsuariosAtivos!: DashboardCard;
   date: Date;
   listaUsuariosAtivos: User[] = [];
+  listaGamesAtivos: Game[] = [];
   webStorage = new WebStorage();
   isLogado: String;
 
   constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router){
-    this.dashBoardCardQtdDisp = new DashboardCard("Quantidade de Jogos Disponiveis", "XX");
-    this.dashBoardCardTotalBaixado = new DashboardCard("Total Jogos baixados", "XX");
     this.date = new Date();
 
     //carrega se está logado
@@ -49,10 +48,24 @@ export class DashboardComponent implements OnInit{
         window.alert("Erro ao usar Observable para carregar os dados do usuário");
       }
     );
+
+    this.carregarJogos().subscribe(
+      (listaGames) => {
+        this.listaGamesAtivos = listaGames;
+        this.dashBoardCardQtdGames = new DashboardCard("Quantidade de Jogos Disponiveis", this.listaGamesAtivos.length.toString());
+      },
+      (error) => {
+        console.error('Erro ao inicializar dashboard:', error);
+        window.alert("Erro ao usar Observable para carregar os dados dos games");
+      }
+    );
   }
 
   carregarUsuarios(): Observable<User[]> {
     return this.http.get<User[]>('http://localhost:3000/user');
+  }
+  carregarJogos(): Observable<Game[]> {
+    return this.http.get<Game[]>('http://localhost:3000/game');
   }
 
   calculaQuantidadeUsuariosAtivos(users: User[]) : Number{

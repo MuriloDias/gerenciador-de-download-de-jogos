@@ -1,6 +1,6 @@
 <div class="intro z-depth-1" [ngStyle]="this.getBackgroudImage()">
     <div class="container">
-        <input [(ngModel)]="popularGames">
+        <input [(ngModel)]="popularGames" disabled="true" style="text-align: center;">
         <div class="row d-flex justify-content-center align-items-center">
             <div class="col-md-4 my-4" *ngFor="let game of games">
                 <div class="card card-centered" style="width: 18rem;">
