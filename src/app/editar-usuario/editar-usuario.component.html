@@ -1,0 +1,43 @@
+<div class="container">
+    <form [formGroup]="userForm" (ngSubmit)="submitForm()">
+        <div class="form-group">
+          <label for="nome">id:</label>
+          <input type="text" id="id" class="form-control" formControlName="id" [disabled]="true">
+        </div>
+        <div class="form-group">
+          <label for="nome">Nome:</label>
+          <input type="text" id="nome" class="form-control" formControlName="nome" required>
+            <div *ngIf="userForm.controls['nome'].invalid && userForm.controls['nome'].touched" class="text-danger">
+            Nome é obrigatório.
+          </div>
+        </div> 
+        <div class="form-group">
+          <label for="login">Login:</label>
+          <input type="text" id="login" class="form-control" formControlName="login" required>
+          <div *ngIf="userForm.controls['login'].invalid && userForm.controls['login'].touched" class="text-danger">
+            Login é obrigatório.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="senha">Senha:</label>
+          <input type="password" id="senha" class="form-control" formControlName="senha" required minlength="6">
+          <div *ngIf="userForm.controls['senha'].invalid && userForm.controls['senha'].touched" class="text-danger">
+            Senha é obrigatória e deve ter pelo menos 6 caracteres, um caractere maiusculo, um minusculo e um numero.
+          </div>
+        </div>
+        <div class="form-group">
+            <label>Ativo:</label>
+            <div class="form-check">
+              <input type="radio" id="ativo" class="form-check-input" formControlName="ativo" value="true" [checked]="userForm.controls['ativo'].value === true">
+              <label for="ativo" class="form-check-label">Ativo</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" id="inativo" class="form-check-input" formControlName="ativo" value="false" [checked]="userForm.controls['ativo'].value === false">
+              <label for="inativo" class="form-check-label">Inativo</label>
+            </div>
+          </div>
+        <br>
+        <button type="submit" class="btn btn-primary" [disabled]="userForm.invalid">Alterar</button>
+      </form>
+      
+</div>

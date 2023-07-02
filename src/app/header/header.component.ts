@@ -27,14 +27,11 @@ export class HeaderComponent {
       this.router.navigate(['/']);
       this.isLogado = "Login";
       this.hiddenLogin = false;
-    }else{
-      // this.isLogado = "Logout";
-      // this.hiddenLogin = true;
     }
   }
 
   deslogar(){
-    this.webStorage.salvarObjetoNoWebStorage("isLogado", "");
+    this.webStorage.salvarObjetoNoWebStorage("isLogado", undefined);
     this.router.navigate(['/']);
     this.isLogado = "Login";
     this.hiddenLogin = false;

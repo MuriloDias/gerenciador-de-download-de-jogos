@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { WebStorage } from '../DB/WebStorage';
+import axios from 'axios';
+import { Game } from '../model/game';
 
 @Component({
   selector: 'app-games',
@@ -8,15 +10,14 @@ import { WebStorage } from '../DB/WebStorage';
   styleUrls: ['./games.component.css']
 })
 export class GamesComponent implements OnInit{
-  //Substitui a lista com os jogos
-  popularGames = "Lista dos Jogos populares! teste de input";
+  popularGames = "Destaques";
   imageURL: string = "../../assets/arrows-abstract-4k.jpg";
   webStorage = new WebStorage();
   isLogado: String = "Login";
+  games: Game[] = [];
 
   constructor(private route: ActivatedRoute, private router: Router){
-    //carrega se está logado
-
+    this.carregarJogos();
   }
 
   getBackgroudImage() {
@@ -28,4 +29,14 @@ export class GamesComponent implements OnInit{
   }
 
   ngOnInit(): void{}
+
+  async carregarJogos() {
+    try {
+      const response = await axios.get('http://localhost:3000/game');
+      this.games = response.data;
+    } catch (error) {
+      console.error('Erro ao carregar jogos:', error);
+    }
+  }
 }
+
