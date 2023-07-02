@@ -31,6 +31,10 @@ export class GerenciarUsuariosComponent {
     this.carregarUsuarios();
   }
 
+  editarUsuario(id: number): void {
+    this.router.navigate(['/editarUsuarios', id]);
+  }
+
 }
 
 async function removerUsuario(id: any): Promise<void> {
@@ -41,3 +45,5 @@ async function removerUsuario(id: any): Promise<void> {
     console.error('Erro ao remover Usuário', error);
   }
 }
+
+

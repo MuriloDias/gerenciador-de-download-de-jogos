@@ -8,9 +8,9 @@
       "ativo": true
     },
     {
-      "username": "aaaaaaaaaaa",
-      "password": "Admin123",
-      "login": "aaaaaaaa",
+      "username": "Murilo",
+      "password": "Murilo0",
+      "login": "Murilo",
       "ativo": true,
       "id": 2
     },
@@ -20,6 +20,20 @@
       "login": "asdasdasdas",
       "ativo": true,
       "id": 3
+    },
+    {
+      "username": "priscila",
+      "password": "priscila9A",
+      "login": "priscila",
+      "ativo": false,
+      "id": 4
+    },
+    {
+      "username": "pedro",
+      "password": "Pedro9",
+      "login": "pedro",
+      "ativo": false,
+      "id": 5
     }
   ],
   "game": [

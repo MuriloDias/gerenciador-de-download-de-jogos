@@ -14,6 +14,7 @@
     <table class="table">
         <thead>
             <tr>
+                <th>ID</th>
                 <th>Nome jogo</th>
                 <th>Descrição</th>
                 <th>Link Download</th>
@@ -22,6 +23,7 @@
         </thead>
         <tbody>
             <tr *ngFor="let game of listaJogos">
+                <td>{{ game.id }}</td>
                 <td>{{ game.nome }}</td>
                 <td>{{ game.descricao }}</td>
                 <td><a>{{ game.linkDown }}</a></td>

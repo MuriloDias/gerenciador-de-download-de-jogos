@@ -10,6 +10,7 @@ import { GerenciarUsuariosComponent } from './gerenciar-usuarios/gerenciar-usuar
 import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.component';
 import { GerenciarJogosComponent } from './gerenciar-jogos/gerenciar-jogos.component';
 import { CadastroJogoComponent } from './cadastro-jogo/cadastro-jogo.component';
+import { EditarUsuarioComponent } from './editar-usuario/editar-usuario.component';
 
 const routes: Routes = [
   {path: "", component: GamesComponent},
@@ -21,6 +22,8 @@ const routes: Routes = [
   {path: "cadastroUsuarios", component: CadastroUsuarioComponent},
   {path: "gerenciarJogos", component: GerenciarJogosComponent},
   {path: "cadastroJogos", component: CadastroJogoComponent},
+  {path: "editarUsuarios", component: EditarUsuarioComponent},
+  {path: "editarUsuarios/:id", component: EditarUsuarioComponent },
 ];
 
 @NgModule({
