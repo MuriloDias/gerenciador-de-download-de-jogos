@@ -26,4 +26,8 @@ export class GerenciarUsuariosComponent {
     }
   }
 
+  editarUsuario(id: number): void {
+    this.router.navigate(['/editarUsuarios', id]);
+  }
+
 }

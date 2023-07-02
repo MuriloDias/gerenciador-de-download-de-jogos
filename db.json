@@ -1,11 +1,32 @@
 {
-    "user": [
-        {
-            "id": 1,
-            "username": "admin",
-            "login": "admin",
-            "password": "admin",
-            "ativo": true
-        }
-    ]
+  "user": [
+    {
+      "id": 1,
+      "username": "admin",
+      "login": "admin",
+      "password": "admin",
+      "ativo": true
+    },
+    {
+      "username": "Murilo",
+      "password": "Murilo0",
+      "login": "Murilo",
+      "ativo": true,
+      "id": 2
+    },
+    {
+      "username": "priscila",
+      "password": "priscila9A",
+      "login": "priscila",
+      "ativo": false,
+      "id": 3
+    },
+    {
+      "username": "pedro",
+      "password": "Pedro9",
+      "login": "pedro",
+      "ativo": false,
+      "id": 4
+    }
+  ]
 }
