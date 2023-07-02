@@ -1,16 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DashboardCard } from '../model/dashboardCard';
 import { WebStorage } from '../DB/WebStorage';
 import { User } from '../model/user';
-import axios from 'axios';
 import { ActivatedRoute, Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit{
   dashBoardCardQtdDisp: DashboardCard;
   dashBoardCardTotalBaixado: DashboardCard;
   dashBoardCardUsuariosAtivos!: DashboardCard;
@@ -19,7 +20,7 @@ export class DashboardComponent {
   webStorage = new WebStorage();
   isLogado: String;
 
-  constructor(private route: ActivatedRoute, private router: Router){
+  constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router){
     this.dashBoardCardQtdDisp = new DashboardCard("Quantidade de Jogos Disponiveis", "XX");
     this.dashBoardCardTotalBaixado = new DashboardCard("Total Jogos baixados", "XX");
     this.date = new Date();
@@ -29,7 +30,29 @@ export class DashboardComponent {
     if(this.isLogado === undefined){
       this.router.navigate(['/']);
     }
+  }
+  ngOnInit(): void {
     this.inicializarDashboard();
+  }
+
+
+
+  inicializarDashboard() {
+    this.carregarUsuarios().subscribe(
+      (listaUsuarios) => {
+        this.listaUsuariosAtivos = listaUsuarios;
+        let qtdUsuariosAtivos = this.calculaQuantidadeUsuariosAtivos(this.listaUsuariosAtivos);
+        this.dashBoardCardUsuariosAtivos = new DashboardCard("Usuários Ativos", qtdUsuariosAtivos.toString());
+      },
+      (error) => {
+        console.error('Erro ao inicializar dashboard:', error);
+        window.alert("Erro ao usar Observable para carregar os dados do usuário");
+      }
+    );
+  }
+
+  carregarUsuarios(): Observable<User[]> {
+    return this.http.get<User[]>('http://localhost:3000/user');
   }
 
   calculaQuantidadeUsuariosAtivos(users: User[]) : Number{
@@ -40,28 +63,6 @@ export class DashboardComponent {
       }
     }
     return qtdAtivos;
-  }
-
-
-  async inicializarDashboard() {
-    try {
-      let qtdConsultada = await this.carregarUsuarios();
-      let qtdUsuariosAtivos = this.calculaQuantidadeUsuariosAtivos(qtdConsultada);
-      this.dashBoardCardUsuariosAtivos = new DashboardCard("Usuários Ativos", qtdUsuariosAtivos.toString());
-    } catch (error) {
-      console.error('Erro ao inicializar dashboard:', error);
-    }
-  }
-
-  async carregarUsuarios(): Promise<User[]> {
-    try {
-      const response = await axios.get('http://localhost:3000/user');
-      const listaUsuarios: User[] = response.data;
-      return listaUsuarios;
-    } catch (error) {
-      console.error('Erro ao carregar usuários:', error);
-      throw error; // Lança o erro para que possa ser tratado externamente
-    }
   }
 }
 
