@@ -16,6 +16,7 @@ import { ListarJogosComponent } from './listar-jogos/listar-jogos.component';
 import { AlterarJogoComponent } from './alterar-jogo/alterar-jogo.component';
 import { GerenciarUsuariosComponent } from './gerenciar-usuarios/gerenciar-usuarios.component';
 import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.component';
+import { AtivoDesativoPipe } from './pipe/ativo-desativo.pipe';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.co
     ListarJogosComponent,
     AlterarJogoComponent,
     GerenciarUsuariosComponent,
-    CadastroUsuarioComponent
+    CadastroUsuarioComponent,
+    AtivoDesativoPipe
   ],
   imports: [
     BrowserModule,

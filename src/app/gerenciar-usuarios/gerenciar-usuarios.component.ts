@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { User } from '../model/user';
 import { ActivatedRoute, Router } from '@angular/router';
 import { WebStorage } from '../DB/WebStorage';
+import axios from 'axios';
 
 @Component({
   selector: 'app-gerenciar-usuarios',
@@ -13,9 +14,15 @@ export class GerenciarUsuariosComponent {
   webStorage = new WebStorage();
 
   constructor(private route: ActivatedRoute, private router: Router){
-    let usuariosConsultados = this.webStorage.consultarObjetoNoWebStorage('listaUsuariosAtivos');
-    if(usuariosConsultados != null){
-      this.listaUsuariosAtivos = usuariosConsultados;
+    this.carregarUsuarios();
+  }
+
+  async carregarUsuarios() {
+    try {
+      const response = await axios.get('http://localhost:3000/user');
+      this.listaUsuariosAtivos = response.data;
+    } catch (error) {
+      console.error('Erro ao carregar usuários:', error);
     }
   }
 

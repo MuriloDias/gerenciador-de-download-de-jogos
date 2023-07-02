@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { User } from '../model/user';
 import { WebStorage } from '../DB/WebStorage';
 import { ActivatedRoute, Router } from '@angular/router';
+import axios from 'axios';
 
 @Component({
   selector: 'app-cadastro-usuario',
@@ -26,28 +27,36 @@ export class CadastroUsuarioComponent {
     try {
       if (this.userForm.valid) {
         const userData = this.userForm.value;
-  
+        const ativoValue = userData.ativo === 'true';
+
         const userModel = new User(
           userData.nome,
           userData.login,
           userData.senha,
-          userData.ativo
+          ativoValue
         );
 
-        let usuariosConsultados = this.webStorage.consultarObjetoNoWebStorage('listaUsuariosAtivos');
-        let listaUsuariosAtivos: User[] = [];
-        if(usuariosConsultados != null){
-          listaUsuariosAtivos = usuariosConsultados;
-        }
-
-        listaUsuariosAtivos.push(userModel);
-        this.webStorage.salvarObjetoNoWebStorage('listaUsuariosAtivos', listaUsuariosAtivos);
-        window.alert("Usuario salvo com sucesso!");
+        inserirUsuario(userModel)
+        .then((data) => {
+          console.log('Usuário inserido:', data);
+        })
+        .catch((error) => {
+          console.error('Erro ao inserir usuário:', error);
+        });
+        window.alert('Usuario salvo com sucesso!');
         this.router.navigate(['/gerenciarUsuarios']);
       }
     } catch (e) {
-        window.alert("Erro ao salvar usuario!");
+      window.alert('Erro ao salvar usuario!');
     }
-
-    }
+  }
+}
+async function inserirUsuario(usuario: any): Promise<any> {
+  try {
+    const response = await axios.post('http://localhost:3000/user', usuario);
+    return response.data;
+  } catch (error) {
+    console.error('Erro ao inserir usuário:', error);
+    return null;
+  }
 }
