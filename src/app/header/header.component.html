@@ -39,7 +39,7 @@
             </div>
             <div style="align-self: center;" [hidden]="!this.hiddenLogin">
                 <a routerLink="/">
-                  <div class="btn btn-outline-danger my-2 my-sm-0" name="logout">
+                  <div class="btn btn-outline-danger my-2 my-sm-0" name="logout" (click)="deslogar()">
                     {{ isLogado }}
                   </div>
                 </a>

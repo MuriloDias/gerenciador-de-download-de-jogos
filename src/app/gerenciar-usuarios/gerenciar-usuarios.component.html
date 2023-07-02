@@ -18,6 +18,8 @@
                 <th>Login</th>
                 <th>Senha</th>
                 <th>Ativo</th>
+                <th></th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -25,7 +27,23 @@
                 <td>{{ user.username }}</td>
                 <td>{{ user.login }}</td>
                 <td>{{ user.password }}</td>
-                <td>{{ user.ativo | ativoDesativo}}</td>
+                <td>
+                    <p *ngIf="user.ativo; else vermelho" class="verde">
+                        {{ user.ativo | ativoDesativo}}
+                      </p>
+                      
+                      <ng-template #vermelho>
+                        <p class="vermelho">
+                        {{ user.ativo | ativoDesativo}}
+                        </p>
+                      </ng-template>
+                </td>
+                <td>
+                    <button class="btn btn-outline-info my-2 my-sm-0" (click)="editarUsuario(user)">Editar</button>
+                </td>
+                <td>
+                    <button class="btn btn-outline-danger my-2 my-sm-0" (click)="editarUsuario(user)">Remover</button>
+                </td>
             </tr>
         </tbody>
     </table>
