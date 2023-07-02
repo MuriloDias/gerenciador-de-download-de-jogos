@@ -83,12 +83,10 @@ export class EditarUsuarioComponent implements OnInit {
           userData.nome,
           userData.login,
           userData.senha,
-          ativoValue,
-
+          ativoValue
         );
 
         const id = this.userForm.get('id')?.value;
-        userModel.id = id;
   
         updateUser(id, userModel)
           .then((updatedUser) => {
@@ -107,8 +105,8 @@ export class EditarUsuarioComponent implements OnInit {
   }
   
 }
-async function updateUser(id: number, updatedUser: User): Promise<User> {
-  const url = 'http://localhost:3000/user?id=${id}';
+async function updateUser(id: any, updatedUser: User): Promise<User> {
+  const url = 'http://localhost:3000/user/'.concat(id);
   try {
     const response = await axios.put(url, updatedUser);
     return response.data;
