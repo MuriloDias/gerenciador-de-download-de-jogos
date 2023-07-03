@@ -53,7 +53,7 @@ export class CadastroUsuarioComponent {
 }
 async function inserirUsuario(usuario: any): Promise<any> {
   try {
-    const response = await axios.post('http://localhost:3000/user', usuario);
+    const response = await axios.post('/api/user', usuario);
     return response.data;
   } catch (error) {
     console.error('Erro ao inserir usuário:', error);

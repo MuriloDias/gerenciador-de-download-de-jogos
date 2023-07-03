@@ -46,7 +46,7 @@ export class EditarJogoComponent implements OnInit{
   }
 
   async getGameByUserName(id: number): Promise<Game> {
-    const url = `http://localhost:3000/game?id=${id}`;
+    const url = `/api/game?id=${id}`;
     try {
       const response = await axios.get(url);
       const users: Game[] = response.data;
@@ -91,7 +91,7 @@ export class EditarJogoComponent implements OnInit{
   }
 }
 async function updateGame(id: any, updatedGame: Game): Promise<Game> {
-  const url = 'http://localhost:3000/game/'.concat(id);
+  const url = '/api/game/'.concat(id);
   try {
     const response = await axios.put(url, updatedGame);
     return response.data;

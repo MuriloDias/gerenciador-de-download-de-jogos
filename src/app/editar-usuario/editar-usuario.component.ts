@@ -54,7 +54,7 @@ export class EditarUsuarioComponent implements OnInit {
   }
 
   async getUserByUserName(id: number): Promise<User> {
-    const url = `http://localhost:3000/user?id=${id}`;
+    const url = `/api/user?id=${id}`;
     try {
       const response = await axios.get(url);
       const users: User[] = response.data;
@@ -102,7 +102,7 @@ export class EditarUsuarioComponent implements OnInit {
   
 }
 async function updateUser(id: any, updatedUser: User): Promise<User> {
-  const url = 'http://localhost:3000/user/'.concat(id);
+  const url = '/api/user/'.concat(id);
   try {
     const response = await axios.put(url, updatedUser);
     return response.data;

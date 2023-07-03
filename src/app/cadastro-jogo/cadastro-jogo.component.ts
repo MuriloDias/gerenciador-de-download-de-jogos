@@ -53,7 +53,7 @@ export class CadastroJogoComponent {
 }
 async function inserirJogo(jogo: any): Promise<any> {
   try {
-    const response = await axios.post('http://localhost:3000/game', jogo);
+    const response = await axios.post('/api/game', jogo);
     return response.data;
   } catch (error) {
     console.error('Erro ao inserir jogo:', error);

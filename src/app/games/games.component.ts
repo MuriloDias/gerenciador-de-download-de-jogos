@@ -36,7 +36,7 @@ export class GamesComponent implements OnInit{
 
   async carregarJogos() {
     try {
-      const response = await axios.get('http://localhost:3000/game');
+      const response = await axios.get('/api/game');
       this.gerenciarGames = response.data;
     } catch (error) {
       console.error('Erro ao carregar jogos:', error);

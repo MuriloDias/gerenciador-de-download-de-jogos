@@ -49,7 +49,7 @@ export class LoginComponent {
 }
 async function obterDadosDoJSON(): Promise<any> {
   try {
-    const response = await axios.get('http://localhost:3000/User');
+    const response = await axios.get('/api/User');
     const dados = response.data;
     return dados;
   } catch (error) {

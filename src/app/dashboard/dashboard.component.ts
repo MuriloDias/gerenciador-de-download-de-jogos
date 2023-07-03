@@ -62,10 +62,10 @@ export class DashboardComponent implements OnInit{
   }
 
   carregarUsuarios(): Observable<User[]> {
-    return this.http.get<User[]>('http://localhost:3000/user');
+    return this.http.get<User[]>('/api/user');
   }
   carregarJogos(): Observable<Game[]> {
-    return this.http.get<Game[]>('http://localhost:3000/game');
+    return this.http.get<Game[]>('/api/game');
   }
 
   calculaQuantidadeUsuariosAtivos(users: User[]) : Number{

@@ -19,7 +19,7 @@ export class GerenciarUsuariosComponent {
 
   async carregarUsuarios() {
     try {
-      const response = await axios.get('http://localhost:3000/user');
+      const response = await axios.get('/api/user');
       this.listaUsuariosAtivos = response.data;
     } catch (error) {
       console.error('Erro ao carregar usuários:', error);
@@ -39,7 +39,7 @@ export class GerenciarUsuariosComponent {
 
 async function removerUsuario(id: any): Promise<void> {
   try{
-    await axios.delete('http://localhost:3000/user/' + id);
+    await axios.delete('/api/user/' + id);
     window.alert('Usuário removido com sucesso!');
   } catch (error) {
     console.error('Erro ao remover Usuário', error);
