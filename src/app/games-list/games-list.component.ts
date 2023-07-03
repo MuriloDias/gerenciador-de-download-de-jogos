@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Game } from '../model/game';
 
 @Component({
   selector: 'app-games-list',
@@ -7,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class GamesListComponent {
   //Substitui a lista com os jogos
-  @Input() popularGames!: string;
+  @Input() subGames: Game[] = [];
   recentGames = "Lista dos Jogos recentes";
 
   ngOnInit() { 

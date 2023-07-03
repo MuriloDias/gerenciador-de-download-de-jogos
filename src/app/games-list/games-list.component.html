@@ -1,5 +1,15 @@
 <div class="container">
-    <div>
-        <input [(ngModel)]="popularGames">
+    <input [(ngModel)]="recentGames" disabled="true" style="text-align: center;">
+    <div class="row d-flex justify-content-center align-items-center">
+        <div class="col-md-4 my-4" *ngFor="let game of subGames">
+            <div class="card card-centered" style="width: 18rem;">
+                <img src="{{ game.linkImg }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title text-ellipsis">{{ game.nome }}</h5>
+                    <p class="card-text text-ellipsis">{{ game.descricao }}</p>
+                    <a href="{{ game.linkDown }}" class="btn btn-primary">Download</a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

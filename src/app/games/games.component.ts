@@ -15,9 +15,10 @@ export class GamesComponent implements OnInit{
   webStorage = new WebStorage();
   isLogado: String = "Login";
   games: Game[] = [];
+  subGames: Game[] = [];
+  gerenciarGames: Game[] = [];
 
   constructor(private route: ActivatedRoute, private router: Router){
-    this.carregarJogos();
   }
 
   getBackgroudImage() {
@@ -28,15 +29,29 @@ export class GamesComponent implements OnInit{
     };
   }
 
-  ngOnInit(): void{}
+  async ngOnInit(): Promise<void>{
+    await this.carregarJogos();
+    this.gerenciarJogos();
+  }
 
   async carregarJogos() {
     try {
       const response = await axios.get('http://localhost:3000/game');
-      this.games = response.data;
+      this.gerenciarGames = response.data;
     } catch (error) {
       console.error('Erro ao carregar jogos:', error);
     }
+  }
+
+  gerenciarJogos(){
+    this.gerenciarGames.forEach((game) => {
+      if (this.games.length < 3) {
+        this.games.push(game);
+      }else{
+        this.subGames.push(game);
+      }
+    });
+    console.log("teste");
   }
 }
 
