@@ -14,9 +14,7 @@
     "postinstall": "npm install concurrently --save-dev",
     "json:server": "json-server --watch db.json",
     "json:server:routes": "json-server --watch db.json --routes routes.json",
-    "deploy": "concurrently \"ng serve\" \"json-server --watch db.json --routes routes.json\"",
     "heroku-postbuild": "npm install -g @angular/cli && ng build --configuration production"
-
   },
   "private": true,
   "dependencies": {
