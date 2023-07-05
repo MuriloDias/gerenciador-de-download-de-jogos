@@ -30,6 +30,9 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## Protótipos feitos em figma
 https://www.figma.com/file/YGsHJvaikdUxy7jtN46q6n/Untitled?type=design&node-id=4%3A27&t=XUPAOUNDnTwk9Plz-1
 
+## Projetos upado no github pages
+https://murilodias.github.io/gerenciador-de-download-de-jogos/
+
 ##Topicos
 Criar o repositório no GitHub com a estrutura do Gitflow, ou seja, branches main e develop.
 Usar componentes de algum framework CSS (Bootstrap, Materialize ou outro).
@@ -49,3 +52,4 @@ Apresentar uma lista de dados com a diretiva estrutural ngFor.
 Usar a diretiva ngIf
 Formatar a apresentação de dados com Pipes.
 Build e deploy da aplicação.
+
