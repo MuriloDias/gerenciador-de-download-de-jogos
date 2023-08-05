@@ -33,6 +33,9 @@ https://www.figma.com/file/YGsHJvaikdUxy7jtN46q6n/Untitled?type=design&node-id=4
 ## Projetos upado no github pages
 https://murilodias.github.io/gerenciador-de-download-de-jogos/
 
+## Video apresentando o sistema e os topicos listados abaixo
+https://www.youtube.com/watch?v=OLMWQjfBfJ8
+
 ## Topicos
 ### Criar o repositório no GitHub com a estrutura do Gitflow, ou seja, branches main e develop.
 ### Usar componentes de algum framework CSS (Bootstrap, Materialize ou outro).
